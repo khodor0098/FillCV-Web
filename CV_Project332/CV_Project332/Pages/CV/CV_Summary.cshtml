@@ -1,0 +1,149 @@
+﻿@page
+@model CV_Project332.Pages.CV.CV_SummaryModel
+@{
+}
+
+
+
+
+<div class="container">
+    <div class="main-body">
+    
+          <!-- Breadcrumb -->
+          <nav aria-label="breadcrumb" class="main-breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+            </ol>
+          </nav>
+          <!-- /Breadcrumb -->
+    
+          <div class="row gutters-sm">
+            <div class="col-md-4 mb-3">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex flex-column align-items-center text-center">
+                    <img src="~/Images/@Model.info.Ipath" alt="Admin" class="rounded-circle" width="150">
+                    <div class="mt-3">
+                      <h4>@Model.info.FName @Model.info.LName</h4>
+                      <p class="text-secondary mb-1">New CV</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card mt-3">
+
+             </div>
+            </div>
+            <div class="col-md-8">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Full Name</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      @Model.info.FName @Model.info.LName
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Email</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      @Model.info.Email
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">BirthDate</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                         @foreach (var item2 in @Model.info.Date_of_Birth.ToString())
+                   {
+                      @item2
+                            @if(item2==' ')
+                            {
+                                break;
+                            }
+                        }
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Gender</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      @Model.info.gender
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Nationality</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      @Model.info.Nationality
+                    </div>
+                  </div>
+                  <hr>
+                     <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Grade</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      @Model.info.grade
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <a class="btn btn-info " asp-page="CV_Views">Back</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row gutters-sm">
+                <div class="col-sm-6 mb-3">
+                  <div class="card h-100">
+                    <div class="card-body">
+                      <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">assignment</i>Skills</h6>
+                      @if(@Model.info.s1){
+                      <small>C language</small>
+                      <div class="progress mb-3" style="height: 5px">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                      }
+                      @if (@Model.info.s2)
+                       {
+                                    <small>Python</small>
+                                    <div class="progress mb-3" style="height: 5px">
+                                        <div class="progress-bar bg-primary" role="progressbar" style="width: 72%" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                       }
+                       @if (@Model.info.s3){
+                      <small>Laravel</small>
+                      <div class="progress mb-3" style="height: 5px">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 89%" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                       }
+                       @if (@Model.info.s4){
+                      <small>Asp .net</small>
+                      <div class="progress mb-3" style="height: 5px">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                       }
+                    </div>
+                  </div>
+                </div>
+
+
+            </div>
+          </div>
+
+        </div>
+    </div>
+</div>

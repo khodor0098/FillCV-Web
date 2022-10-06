@@ -1,0 +1,118 @@
+﻿@page
+@model CV_Project332.Pages.CV.EditModel
+@{
+}
+
+<div class="container register"  >
+                <div class="row"    style="background-image: url('~/Images/p1.jpg');">
+                   
+                    <div class="col-md-3 register-left">
+                       
+                        <h3>Welcome</h3>
+                        <p>Please Enter Your Informations</p>
+                         <div asp-validation-summary="All" class="text-danger"></div>
+                    </div>
+                    <div class="col-md-9 register-right">
+                        <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">CV</a>
+                            </li>
+                        </ul>
+
+                        <form class="well form-horizontal" method="post" enctype="multipart/form-data"  id="contact_form">
+                            <input type="hidden" asp-for="info.Id" />
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <h3 class="register-heading">Fill Your CV</h3>
+                                <div class="row register-form">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input asp-for="info.FName" class="form-control" placeholder="First Name *" />
+                                            <span asp-validation-for="info.FName" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <input asp-for="info.LName" class="form-control" placeholder="Last Name *" />
+                                             <span asp-validation-for="info.LName" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                                <input type="hidden" asp-for="info.Date_of_Birth" />
+                                                <span asp-validation-for="info.Date_of_Birth" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="info.Email"><b>Choose Your Skills :</b></label>
+                                            <br/>
+                                              <label asp-for="info.s1"></label>
+                                            <input asp-for="info.s1" />
+                                              <label asp-for="info.s2"></label>
+                                              <input asp-for="info.s2" />
+                                                <label asp-for="info.s3"></label>
+                                              <input asp-for="info.s3" />
+                                                <label asp-for="info.s4"></label>
+                                              <input asp-for="info.s4" />
+                                               <span asp-validation-for="info.s1" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="maxl">
+                                                <label class="radio inline"> 
+                                                    <input type="radio" asp-for="info.gender" value="Male" checked>
+                                                    <span> Male </span> 
+                                                </label>
+                                                <label class="radio inline"> 
+                                                    <input type="radio" asp-for="info.gender" value="Female">
+                                                    <span>Female </span> 
+                                                </label>
+
+                                            </div>
+                                             <span asp-validation-for="info.gender" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="email" asp-for="info.Email" class="form-control" placeholder="Your Email *"/>
+                                            <span asp-validation-for="info.Email" class="text-danger"></span>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="email" asp-for="EmailV" class="form-control" placeholder="Re_ Email *" value="@Model.info.Email" />
+                                            
+
+                                        </div>
+                                        <div class="form-group">
+                                            <select asp-for="info.Nationality" class="form-control">
+                                                <option class="hidden" value="@Model.info.Nationality">@Model.info.Nationality</option>
+                                                   @foreach (var item in Model.na)
+                                                   {
+                                                      <option > @item.Name</option>
+                                                   }
+                                               
+                                            </select>
+                                            <span asp-validation-for="info.Nationality" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <input asp-for="fileP" class="form-control" />
+                                             <span asp-validation-for="info.Ipath" class="text-danger"></span>
+                                        </div>
+                                        <input type="hidden" asp-for="info.Ipath" />
+                                          <div class="form-group">
+
+                                               <label asp-for="sum"><b> sum: @Model.X && @Model.Y </b></label>
+                                               <br/>
+                                                <input type="hidden" asp-for="X" value="@Model.X" />
+                                                 <input type="hidden" asp-for="Y" value="@Model.Y" />
+                                            <input asp-for="sum" class="form-control" />
+                                            
+                                        </div>
+                                        <input  type="submit" class="btn btn-primary"  value="Update"/>
+                                        <input asp-page="../Index" type="submit" class="btn btn-primary"  value="Back"/>
+                                    </div>
+                                </div>
+                            </div>
+               
+                        </div>
+                      </form>
+                    </div>
+                </div>
+
+            </div>
+                                     

@@ -1,0 +1,118 @@
+﻿@page
+@model CV_Project332.Pages.CV.CV_ViewsModel
+@{
+}
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">CV List</h2>
+        </div>
+        <div class="col-6">
+            <a asp-page="Create_CV" class="btn btn-primary">
+                Create New CV
+            </a>
+        </div>
+    </div>
+
+    <br /> <br />
+
+    <table class="table table-bordered table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                    Name
+                </th>
+                 <th>
+                   Email
+                </th>
+                 <th>
+                    BirthDate
+                </th>
+                 <th>
+                    Gender
+                </th>
+                <th>
+                   Nationality
+                </th>
+                   <th>
+                   Skills
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.info)
+           {
+                <tr>
+                <td >@item.FName @item.LName </td>
+                
+                <td >@item.Email </td>
+                <td >  
+                    @foreach (var item2 in @item.Date_of_Birth.ToString())
+                   {
+                      @item2
+                            @if(item2==' ')
+                            {
+                                break;
+                            }
+                        }
+                    </td>
+                 <td > 
+                    @item.gender
+                 </td>
+
+
+                <td >@item.Nationality </td>
+                    <td >
+                        @if(@item.s1==true)
+                        {
+                            <p>
+                                C languege
+                            </p>
+                        }
+                        @if(@item.s2 == true)
+                        {<p>
+                            Python
+                        </p>
+                            
+                        }
+                        @if(@item.s3 == true)
+                        {
+                            <p>
+                                laravel
+                            </p>
+                        }
+                        @if(@item.s4 == true)
+                        {
+                         <p>
+                             asp .net
+                         </p>
+                        }
+
+                </td>
+
+                <td>
+                    <div class="w-75 btn-group" role="group">
+                   <a asp-page="Edit" asp-route-id="@item.Id" class="btn btn-primary mx-2">
+                     <i class="bi bi-pencil-square"> Edit</i>
+                 </a>
+                  <a asp-page="Delete" asp-route-id="@item.Id" class="btn btn-danger mx-2">
+                     <i class="bi bi-pencil-square"> Delete</i>
+                      </a>
+
+                    </div>
+                    </td>
+                    <td>
+                         <div class="w-75 btn-group" role="group">
+                   <a asp-page="CV_Summary" asp-route-id="@item.Id" class="btn btn-primary mx-2">
+                     <i class="bi bi-pencil-square">More Details</i>
+                 </a>
+                 </div>
+                    </td>
+            </tr>
+           }
+           
+        </tbody>
+    </table>
+
+</div>
